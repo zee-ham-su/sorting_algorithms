@@ -37,7 +37,8 @@ size_t lomuto_partition(int *array, size_t low, size_t high, size_t size);
 void quick_sort_lomuto(int *array, size_t low, size_t high, size_t size);
 
 
-
-
+/* advanced tasks sorting algorithm functions */
+void shell_sort(int *array, size_t size);
+void _swap(int *array, int i, int j);
 
 #endif /* SORT_H */
