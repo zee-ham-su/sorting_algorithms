@@ -40,5 +40,11 @@ void quick_sort_lomuto(int *array, size_t low, size_t high, size_t size);
 /* advanced tasks sorting algorithm functions */
 void shell_sort(int *array, size_t size);
 void _swap(int *array, int i, int j);
+void cocktail_sort_list(listint_t **list);
+void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
+void counting_sort(int *array, size_t size);
+
+
+
 
 #endif /* SORT_H */
