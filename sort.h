@@ -47,6 +47,8 @@ void merge_sort(int *array, size_t size);
 void merge(int *arr, int *buff, size_t front, size_t mid, size_t back);
 void merge_sort_recursive(int *arr, int *buff, size_t front, size_t back);
 void print_subarray(int *array, size_t start, size_t end);
-
+void heapify(int *array, size_t size, size_t base, size_t i);
+void swap(int *a, int *b);
+void heap_sort(int *array, size_t size);
 
 #endif /* SORT_H */
