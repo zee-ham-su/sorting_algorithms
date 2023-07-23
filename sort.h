@@ -42,7 +42,6 @@ void shell_sort(int *array, size_t size);
 void _swap(int *array, int i, int j);
 void cocktail_sort_list(listint_t **list);
 void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
-void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
 void merge(int *arr, int *buff, size_t front, size_t mid, size_t back);
 void merge_sort_recursive(int *arr, int *buff, size_t front, size_t back);
@@ -50,5 +49,20 @@ void print_subarray(int *array, size_t start, size_t end);
 void heapify(int *array, size_t size, size_t base, size_t i);
 void swap(int *a, int *b);
 void heap_sort(int *array, size_t size);
+void radix_sort(int *array, size_t size);
+int get_max(const int *array, size_t size);
+
+
+
+
+/*Check if USE_PREVIOUS_COUNTING_SORT is defined */
+#ifdef USE_PREVIOUS_COUNTING_SORT
+void counting_sort(int *array, size_t size);
+#else
+void counting_sort(int *array, size_t size, int exp);
+#endif
+
+
+
 
 #endif /* SORT_H */
