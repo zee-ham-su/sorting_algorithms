@@ -44,8 +44,9 @@ void cocktail_sort_list(listint_t **list);
 void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
 void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
-void merge(int *array, int *left, size_t left_size, int *right, size_t right_size);
-
+void merge(int *arr, int *buff, size_t front, size_t mid, size_t back);
+void merge_sort_recursive(int *arr, int *buff, size_t front, size_t back);
+void print_subarray(int *array, size_t start, size_t end);
 
 
 #endif /* SORT_H */
