@@ -25,7 +25,7 @@ return (max);
 }
 
 /**
- * counting_sort - Performs counting sort based on a
+ * count_sort - Performs counting sort based on a
  * specific digit
  *
  * @array: The array to be sorted
@@ -34,7 +34,7 @@ return (max);
  * place value
  */
 
-void counting_sort(int *array, size_t size, int exp)
+void count_sort(int *array, size_t size, int exp)
 {
 int *output = malloc(size * sizeof(int));
 int count[10] = {0};
@@ -86,7 +86,7 @@ size_t exp;
 exp = 1;
 while (max / exp > 0)
 {
-counting_sort(array, size, exp);
+count_sort(array, size, exp);
 print_array(array, size);
 exp *= 10;
 }
