@@ -56,14 +56,7 @@ void custom_merge(int arr[], int start, int size, int ascending);
 void bitonic_sort(int *array, size_t size);
 void custom_merge(int arr[], int low, int nelemnt, int order);
 void custom_swap(int arr[], int index1, int index2, int ascending);
-
-
-/*Check if USE_PREVIOUS_COUNTING_SORT is defined */
-#ifdef USE_PREVIOUS_COUNTING_SORT
 void counting_sort(int *array, size_t size);
-#else
-void counting_sort(int *array, size_t size, int exp);
-#endif
 
 
 
