@@ -1,82 +1,94 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "sort.h"
 
-
 /**
- * swap_nodes - Swaps two nodes in a doubly linked list.
+ * swap_nodes - Swaps two nodes of a doubly linked list
  *
- * @list: Double pointer to the head of the doubly linked list
- * @node1: First node to swap
- * @node2: Second node to swap
+ * @node: Pointer to the node to be swapped
+ * @list: Pointer to the head of the doubly linked list
+ *
+ * Return: No return value
  */
-void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
+
+void swap_nodes(listint_t **node, listint_t **list)
 {
-listint_t *prev1 = node1->prev;
-listint_t *next2 = node2->next;
+listint_t *current = *node, *next_node, *prev_node;
+/* Check if the node is the head of the list */
+if (!current->prev)
+*list = current->next;
 
-if (prev1 != NULL)
-prev1->next = node2;
-else
-*list = node2;
+current = prev_node = *node;
+next_node = current->next;
+/* Perform the swap for the doubly linked list */
+current->next = next_node->next;
+prev_node = current->prev;
+current->prev = next_node;
+next_node->next = current;
+next_node->prev = prev_node;
 
-if (next2 != NULL)
-next2->prev = node1;
+/* Update the links for the adjacent nodes */
+if (next_node->prev)
+next_node->prev->next = next_node;
 
-node2->prev = prev1;
-node1->next = next2;
-node1->prev = node2;
-node2->next = node1;
+if (current->next)
+current->next->prev = current;
+
+*node = next_node;
 }
+
+
+
 
 
 
 /**
  * cocktail_sort_list - Sorts a doubly linked list of integers
- * in ascending order using the Cocktail shaker sort algorithm.
- *
- * @list: Double pointer to the head of the doubly linked list
+ * in ascending order
+ * using the Cocktail shaker sort algorithm
+ *@list: Pointer to the head of the list to be sorted
+ * (Doubly Linked List)
+ * Return: No return value
  */
+
 void cocktail_sort_list(listint_t **list)
 {
-int swapped;
-listint_t *left;
-listint_t *right = NULL;
-if (!list || !(*list) || !(*list)->next)
+listint_t *head, *aux;
+int forward_pass = 0, backward_pass = -1, total_passes = -1;
+
+if (!list || !(*list) || (!((*list)->prev) && !((*list)->next)))
 return;
-do {
-swapped = 0;
-left = *list;
-while (left->next != right)
+
+head = *list;
+while (backward_pass >= total_passes)
 {
-if (left->n > left->next->n)
+total_passes++;
+while (head->next && forward_pass != backward_pass)
 {
-swap_nodes(list, left, left->next);
+if (head->n > head->next->n)
+{
+aux = head;
+swap_nodes(&aux, list);
 print_list(*list);
-swapped = 1;
-}
-else
-left = left->next;
+head = aux;
 }
 
-if (!swapped)
-break;
+forward_pass++;
+head = head->next;
+}
 
-swapped = 0;
-right = left;
-
-while (right->prev != NULL)
+if (backward_pass == 0)
+total_passes = forward_pass;
+backward_pass--;
+while (head->prev && forward_pass >= backward_pass)
 {
-if (right->n < right->prev->n)
+if (head->n < head->prev->n)
 {
-if (left->n > left->next->n)
-
-swap_nodes(list, right->prev, right);
+aux = head->prev;
+swap_nodes(&aux, list);
 print_list(*list);
-swapped = 1;
+head = aux->next;
 }
-else
-right = right->prev;
+forward_pass--;
+head = head->prev;
 }
-} while (swapped);
+}
 }
