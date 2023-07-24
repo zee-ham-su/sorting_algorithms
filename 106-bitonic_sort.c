@@ -101,10 +101,7 @@ void bitonic_sort(int *arr, size_t array_size)
 {
 int ascending = 1;
 
-if (arr == NULL || array_size < 2) return;
+if (arr == NULL || array_size < 2)
+return;
 custom_bitonicsort(arr, 0, array_size, ascending, array_size);
 }
-
-
-
-
