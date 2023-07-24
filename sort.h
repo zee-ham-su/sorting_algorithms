@@ -51,8 +51,11 @@ void swap(int *a, int *b);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 int get_max(const int *array, size_t size);
-
-
+void custom_bitonicsort(int arr[], int start, int size, int ascending, int array_size);
+void custom_merge(int arr[], int start, int size, int ascending);
+void bitonic_sort(int *array, size_t size);
+void custom_merge(int arr[], int low, int nelemnt, int order);
+void custom_swap(int arr[], int index1, int index2, int ascending);
 
 
 /*Check if USE_PREVIOUS_COUNTING_SORT is defined */
