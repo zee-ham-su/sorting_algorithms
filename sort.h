@@ -58,8 +58,9 @@ void bitonic_sort(int *array, size_t size);
 void custom_merge(int arr[], int low, int nelemnt, int order);
 void custom_swap(int arr[], int index1, int index2, int ascending);
 void counting_sort(int *array, size_t size);
-
-
-
+void int_swap(int *array, ssize_t a, ssize_t b);
+int hoare_part(int *array, int low, int high, int count);
+void quick_sort_hoare(int *array, size_t size);
+void quick_sort_helper(int *array, ssize_t low, ssize_t high, int size);
 
 #endif /* SORT_H */
