@@ -15,12 +15,12 @@ array[b] = tmp;
 }
 
 /**
- * hoare_partition - Partitions the array using the Hoare
+ * hoare_part - Partitions the array using the Hoare
  * partition scheme.
  * @array: Pointer to the array to be sorted.
  * @low: Starting index of the partition to be sorted.
  * @high: Ending index of the partition to be sorted.
- *
+ * @size: array size
  * Return: Index of the pivot element after partitioning.
  */
 int hoare_part(int *array, int low, int high, int size)
@@ -48,7 +48,7 @@ int_swap(array, i, j);
 print_array(array, size);
 }
 }
-  
+
 /**
  * quick_sort_helper - Recursive helper function for Quick sort.
  * @array: Pointer to the array to be sorted.
