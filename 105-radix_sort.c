@@ -52,13 +52,8 @@ while (i < size)
 count[(array[i] / exp) % 10]++;
 i++;
 }
-printf("Before update count array: ");
-print_array(count, 10);
-
 for (i = 1; i < 10; i++)
 count[i] += count[i - 1];
-printf("After update count array: ");
-print_array(count, 10); 
 for (i = size - 1; i < SIZE_MAX; i--)
 {
 output[count[(array[i] / exp) % 10] - 1] = array[i];
@@ -67,8 +62,6 @@ break;
 count[(array[i] / exp) % 10]--;
 }
 
-printf("Intermediate sorted array: ");
-print_array(output, size);
 for (i = 0; i < size; i++)
 {
 *(array + i) = *(output + i);
@@ -91,8 +84,6 @@ size_t exp;
 exp = 1;
 while (max / exp > 0)
 {
-
-printf("Sorting for exp = %lu\n", exp);
 count_sort(array, size, exp);
 print_array(array, size);
 exp *= 10;
