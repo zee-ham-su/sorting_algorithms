@@ -40,6 +40,9 @@ int *output = malloc(size * sizeof(int));
 int count[10] = {0};
 size_t i;
 
+if (size == 0)
+return;
+
 if (!output)
 {
 perror("Memory allocation failed");
